@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-import sys
-
-
 def main() -> None:
     argv: list[str] = sys.argv[1:]
     args_len: int = len(argv)
@@ -14,4 +11,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    import sys
+
     main()
