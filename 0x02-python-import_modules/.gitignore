@@ -1,2 +1,3 @@
-*-import*.py
+__pycache__
+[^d,"import"]*.py
 [^-]*.py
