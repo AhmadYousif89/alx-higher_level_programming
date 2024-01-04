@@ -6,7 +6,7 @@ def main() -> None:
     if args_len == 0:
         print("0 arguments.")
     if args_len > 0:
-        print("{0} argument{1}:".format(args_len, "s" if args_len > 1 else ""))
+        print(args_len, "argument{0}:".format("s" if args_len > 1 else ""))
 
     for i in range(args_len):
         print("{0}: {1}".format(i + 1, argv[i]))
