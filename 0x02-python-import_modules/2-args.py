@@ -5,10 +5,8 @@ def main() -> None:
 
     if args_len == 0:
         print("0 arguments.")
-    elif args_len == 1:
-        print("1 argument:")
-    else:
-        print("{0} arguments:".format(args_len))
+    if args_len > 0:
+        print("{0} argument{1}:".format(args_len, "s" if args_len > 1 else ""))
 
     for i in range(args_len):
         print("{0}: {1}".format(i + 1, argv[i]))
