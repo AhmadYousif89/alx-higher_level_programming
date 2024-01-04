@@ -10,5 +10,6 @@ def main() -> None:
     print("{0} * {1} = {2}".format(a, b, mul(a, b)))
     print("{0} / {1} = {2}".format(a, b, div(a, b)))
 
-    if __name__ == "__main__":
-        main()
+
+if __name__ == "__main__":
+    main()
