@@ -4,7 +4,7 @@ def main() -> None:
     args_len: int = len(argv)
     if args_len == 0:
         print("0 arguments.")
-    else:
+    elif args_len >= 1:
         print("{0} argument{1}:".format(args_len, "s" if args_len > 2 else ""))
         for i in range(args_len):
             print("{0}: {1}".format(i + 1, argv[i]))
