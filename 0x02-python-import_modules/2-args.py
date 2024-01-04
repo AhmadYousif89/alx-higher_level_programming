@@ -8,7 +8,7 @@ def main() -> None:
     elif args_len == 1:
         print("1 {}:".format(s))
     else:
-        print("{} {}:".format(args_len, s))
+        print("{0} {1}s:".format(args_len, s))
 
         for i in range(args_len):
             print("{0}: {1}".format(i + 1, argv[i]))
