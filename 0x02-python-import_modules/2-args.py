@@ -10,8 +10,8 @@ def main() -> None:
     else:
         print("{0} arguments:".format(args_len))
 
-        for i in range(args_len):
-            print("{0}: {1}".format(i + 1, argv[i]))
+    for i in range(args_len):
+        print("{0}: {1}".format(i + 1, argv[i]))
 
 
 if __name__ == "__main__":
