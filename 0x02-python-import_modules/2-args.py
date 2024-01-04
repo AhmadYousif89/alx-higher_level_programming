@@ -2,7 +2,8 @@
 import sys
 
 
-def main(argv: list[str]) -> None:
+def main() -> None:
+    argv: list[str] = sys.argv[1:]
     args_len: int = len(argv)
     if args_len == 0:
         print("0 arguments.")
@@ -13,4 +14,4 @@ def main(argv: list[str]) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()
