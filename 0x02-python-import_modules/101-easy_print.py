@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-exec('print("#pythoniscool")')
+__import__('builtins').__dict__['write']('#pythoniscool\n')
