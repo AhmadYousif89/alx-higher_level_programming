@@ -1,27 +1,37 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lists.h"
 
-int main(int argc, char const *argv[])
+/**
+ * _helper - .
+ * @start: pointer to the head of the list
+ * @end: pointer to the head of the list
+ * Return: 1 or 0
+ */
+int _helper(listint_t **start, listint_t *end)
 {
-	int dec = 65489, i = 0;
-	char *bin_str = malloc(sizeof(char) * 50);
+	int result = 0;
 
-	if (bin_str == NULL)
-		return 1;
-	while (dec > 0)
-	{
-		bin_str[i++] = dec % 2 + '0';
-		dec /= 2;
-	}
-	bin_str[i] = '\0';
-	for (i = i - 1; i >= 0; i--)
-		printf("%c", bin_str[i]);
+	if (end == NULL) /* End of the list, reached without finding a mismatch */
+		return (1);	 /* A palindrome */
 
-	printf("\n");
-	free(bin_str);
-	return 0;
+	result = _helper(start, end->next);
+	if (!result || (*start)->n != end->n)
+		return (0); /* Not a palindrome */
+
+	*start = (*start)->next; /* Move to the next node */
+	return (1);
 }
-/*
-	10 / 2 = 5 __ 0
-	5 / 2 = 2__ 1
-*/
+
+/**
+ * is_palindrome - Check for palindrome in singly linked lists
+ * @head: pointer to the list
+ * Return: 1 if palindrome, 0 otherwise
+ */
+int is_palindrome(listint_t **head)
+{
+	listint_t *temp = *head;
+
+	if (!head || !*head) /* Empty lists */
+		return (1);		 /* A palindrome */
+
+	return (_helper(head, temp));
+}
