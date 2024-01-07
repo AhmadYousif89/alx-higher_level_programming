@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-from typing import Union
-
-
-def element_at(my_list: list[int], idx: int) -> Union[int, None]:
+def element_at(my_list, idx):
     count: int = len(my_list)
     if idx < 0 or idx >= count:
         return None
