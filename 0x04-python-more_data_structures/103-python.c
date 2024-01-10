@@ -22,7 +22,7 @@ void print_python_bytes(PyObject *p)
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
 
-	limit = size > 10 ? 10 : size + 1;
+	limit = size >= 10 ? 10 : size + 1;
 
 	printf("  first %ld bytes: ", limit);
 	for (i = 0; i < size && i < limit; ++i)
