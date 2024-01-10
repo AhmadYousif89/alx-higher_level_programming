@@ -8,7 +8,7 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	char *string;
+	char *str;
 	Py_ssize_t size, i, limit;
 
 	printf("[.] bytes object info\n");
@@ -18,24 +18,18 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
+	str = ((PyBytesObject *)p)->ob_sval;
 	size = ((PyVarObject *)(p))->ob_size;
-	string = ((PyBytesObject *)p)->ob_sval;
 
 	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", string);
+	printf("  trying string: %s\n", str);
 
-	if (size >= 10)
-		limit = 10;
-	else
-		limit = size + 1;
+	limit = size >= 10 ? 10 : size + 1;
 
 	printf("  first %ld bytes:", limit);
 
 	for (i = 0; i < limit; i++)
-		if (string[i] >= 0)
-			printf(" %02x", string[i]);
-		else
-			printf(" %02x", 256 + string[i]);
+		printf(" %02x", (unsigned char)str[i]);
 
 	printf("\n");
 }
