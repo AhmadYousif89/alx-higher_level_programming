@@ -1,5 +1,4 @@
 #include <Python.h>
-#include <stdio.h>
 
 /**
  * print_python_bytes - Print some basic info about Python bytes objects
@@ -26,7 +25,7 @@ void print_python_bytes(PyObject *p)
 	limit = size >= 10 ? 10 : size + 1;
 
 	printf("  first %ld bytes: ", limit);
-	for (i = 0; i < size && i < limit; ++i)
+	for (i = 0; i < limit; ++i)
 		printf("%02x ", (unsigned char)str[i]);
 	printf("\n");
 }
