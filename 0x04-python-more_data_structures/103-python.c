@@ -42,16 +42,15 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t size, i;
-	PyListObject *list;
+	Py_ssize_t size, i, allocated;
 	PyObject *obj;
 
 	size = ((PyVarObject *)(p))->ob_size;
-	list = (PyListObject *)p;
+	allocated = ((PyListObject *)p)->allocated;
 
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", list->allocated);
+	printf("[*] Allocated = %ld\n", allocated);
 
 	for (i = 0; i < size; i++)
 	{
