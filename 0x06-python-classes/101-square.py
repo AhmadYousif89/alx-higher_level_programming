@@ -61,7 +61,8 @@ class Square:
             print(" " * self.__position[0] + "#" * self.__size)
 
     def __str__(self):
-        """Print a square shape based on the size property using the built-in __str__"""
+        """Print a square shape based on the size property
+        using the built-in __str__"""
         result = ""
         if self.__size == 0:
             return result
