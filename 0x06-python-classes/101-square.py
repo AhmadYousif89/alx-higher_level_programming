@@ -62,10 +62,10 @@ class Square:
 
     def __str__(self):
         """Print a square shape based on the size property using the built-in __str__"""
+        result = ""
         if self.__size == 0:
-            return ""
-        for _ in range(self.__position[1]):
-            print()
+            return result
+        result += "\n" * self.__position[1]
         for _ in range(self.__size):
-            print(" " * self.__position[0] + "#" * self.__size)
-        return ""
+            result += " " * self.__position[0] + "#" * self.__size + "\n"
+        return result.rstrip()
