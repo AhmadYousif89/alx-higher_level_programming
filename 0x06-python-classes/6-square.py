@@ -15,17 +15,17 @@ class Square:
         self.size = size
         self.position = position
 
-    def area(self) -> int:
+    def area(self):
         """Calculate the area of the Square"""
         return self.__size * self.__size
 
     @property
-    def size(self) -> int:
+    def size(self):
         """Get/Set the size of the Square"""
         return self.__size
 
     @size.setter
-    def size(self, value=0) -> None:
+    def size(self, value=0):
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -39,7 +39,7 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, position=(0, 0)) -> None:
+    def position(self, position=(0, 0)):
         if (
             not isinstance(position, tuple)
             or position[0] < 0
@@ -49,7 +49,7 @@ class Square:
 
         self.__position = position
 
-    def my_print(self) -> None:
+    def my_print(self):
         """Print a square shape based on the size property"""
         if self.__size == 0:
             print()
