@@ -5,7 +5,7 @@
 class Square:
     """Create a Square"""
 
-    def __init__(self, size=0, position: tuple[int, int] = (0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize the Square class.
 
         Args:
@@ -31,15 +31,15 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
 
-        self.__size: int = value
+        self.__size = value
 
     @property
-    def position(self) -> tuple[int, int]:
+    def position(self):
         """Get/Set the position of the Square."""
         return self.__position
 
     @position.setter
-    def position(self, position: tuple[int, int] = (0, 0)) -> None:
+    def position(self, position=(0, 0)) -> None:
         if (
             not isinstance(position, tuple)
             or position[0] < 0
@@ -47,7 +47,7 @@ class Square:
         ):
             raise TypeError("position must be a tuple of 2 positive integers")
 
-        self.__position: tuple[int, int] = position
+        self.__position = position
 
     def my_print(self) -> None:
         """Print a square shape based on the size property"""
