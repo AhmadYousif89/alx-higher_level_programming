@@ -71,7 +71,11 @@ class SinglyLinkedList:
         """
         new_node = Node(value)
 
-        if not self.__head or value < self.__head.data:
+        if not self.__head:
+            new_node.__next_node = None
+            self.__head = new_node
+            return
+        if value < self.__head.data:
             new_node.__next_node = self.__head
             self.__head = new_node
             return
