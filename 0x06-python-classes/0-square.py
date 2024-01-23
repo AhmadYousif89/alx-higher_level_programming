@@ -4,4 +4,6 @@
 
 
 class Square:
+    """Create a square"""
+
     pass
