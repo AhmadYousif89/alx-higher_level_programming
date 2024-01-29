@@ -1,0 +1,87 @@
+This is a doctest file for the module ``3-say_my_name.py``
+==========================================================
+
+Importing the ``say_my_name`` function
+======================================
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Usage
+=====
+
+The ``say_my_name(first_name, last_name="")`` function takes two arguments:
+- first_name: type string
+- last_name : type string
+Return: A new string that contains "My name is " followed by (first_name) and (last_name)
+- Example: say_my_name("Bond. James", "Bond.") outputs: "My name is Bond. James Bond."
+
+Test cases:
+===========
+						=================
+========================= Valid Outputs ===========================
+						=================
+
+Testing with empty arguments:
+	>>> say_my_name("", "")
+	My name is
+
+Testing with one argument first_name == "":
+	>>> say_my_name("")
+	My name is
+
+Testing with one argument first_name == "James":
+	>>> say_my_name("James")
+	My name is James
+
+Testing last_name being an empty string:
+	>>> say_my_name("John", "")
+	My name is John
+
+Testing last_name being an blank space:
+	>>> say_my_name("John", " ")
+	My name is John 
+
+Testing with first_name == "" and last_name == "Bond":
+	>>> say_my_name("", "Bond")
+	My name is Bond
+
+Testing with first_name == " " and last_name == "Bond":
+	>>> say_my_name(" ", "Bond")
+	My name is  Bond
+
+Testing with first_name == "James" and last_name == "Bond":
+	>>> say_my_name("James", "Bond")
+	My name is James Bond
+
+Testing with 2 words first_name and 1 word last_name:
+	>>> say_my_name("Bond. James", "Bond.")
+	My name is Bond. James Bond.
+
+Testing with additional whitespace in first_name:
+	>>> say_my_name("   James  ", "Bond")
+	My name is James Bond
+
+Testing with additional whitespace in last_name:
+	>>> say_my_name("James", "  Bond  ")
+	My name is James Bond
+
+Testing long names:
+	>>> say_my_name("A" * 100, "Y" * 100) # doctest: +ELLIPSIS
+	My name is AAA...A YYY...Y
+
+Testing with special characters:
+	>>> say_my_name("#@!John!@#", "\\n$Doe%^&")
+	My name is #@!John!@# \n$Doe%^&
+
+						====================
+========================= TypeError Outputs ===========================
+						====================
+
+Testing with wrong input type for first_name:
+	>>> say_my_name(123, "abc")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+Testing with wrong input type for last_name:
+	>>> say_my_name("abc", 123)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
