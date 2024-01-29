@@ -16,7 +16,9 @@ class Rectangle:
         self.__height = height
 
     def __str__(self):
-        """Return a Rectangle representation in a string shape using the (#) sympol"""
+        """
+        Return a Rectangle representation in a string shape using the (#)s
+        """
         result = ""
         if self.__width == 0 or self.__height == 0:
             return result
