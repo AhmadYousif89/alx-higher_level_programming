@@ -49,8 +49,7 @@ def nqueens_puzzle(N):
 
     for solution in results:
         for r, c in enumerate(solution):
-            print(f'[{r}, {c}]', end=' ')
-        print()
+            print(f'[{r}, {c}]', end=' ' if r != len(solution) - 1 else '\n')
 
 
 def solve_puzzle(board, row, N, results):
