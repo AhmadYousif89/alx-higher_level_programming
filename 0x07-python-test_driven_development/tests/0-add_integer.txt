@@ -1,0 +1,126 @@
+This is a doctest file for the module ``0-add_integer.py``
+==========================================================
+
+Importing the ``add_integer`` function
+======================================
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Usage
+=====
+
+The ``add_integer(a, b=98)`` function takes two arguments:
+- 		a: type (int or float)
+- 		b: type (int or float) with default value = 98
+-  Return: The sum of a + b as (int)
+- Example: add_integer(2.5, 98) outputs: 100
+
+Test cases:
+===========
+						=================
+========================= Valid Outputs ===========================
+						=================
+
+Testing two positive integers:
+	>>> add_integer(5, 2)
+	7
+
+Testing with mixed inputs:
+	>>> add_integer(5, 2.5)
+	7
+
+Testing two big positive integers:
+	>>> add_integer(532_213_458, 231_342_741)
+	763556199
+
+Testing two big mixed values:
+	>>> add_integer(532_213_458.3432, 231_342_741)
+	763556199
+
+Testing one positive and one negative integers:
+	>>> add_integer(-1, 1)
+	0
+
+Testing one big positive and one big negative integers:
+	>>> add_integer(-657_343_989, 398_878_392)
+	-258465597
+
+Testing two negative integers:
+	>>> add_integer(-1, -1)
+	-2
+
+Testing two big negative integers:
+	>>> add_integer(-657_343_989, -398_878_392)
+	-1056222381
+
+Testing two positive float numbers:
+	>>> add_integer(4.8, 5.2)
+	9
+
+Testing two big positive float numbers:
+	>>> add_integer(434_231_947.812, 534_232_343.212)
+	968464290
+
+Testing one positive float and one negative float:
+	>>> add_integer(4.8, -5.2)
+	-1
+
+Testing one big positive float and one big negative number:
+	>>> add_integer(434_231_947.812, -534_232_343.212)
+	-100000396
+
+Testing two negative floats:
+	>>> add_integer(-4.8, -5.2)
+	-9
+
+Testing two big negative float numbers:
+	>>> add_integer(-434_231_947.812, -534_232_343.212)
+	-968464290
+
+Testing only one positive number passed to the first argument:
+	>>> add_integer(1)
+	99
+
+						=====================
+========================= TypeError Outputs ===========================
+						=====================
+
+Testing a string as arg1 and a positive number as arg2:
+	>>> add_integer("123", 1)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+Testing a positive number as arg1 and a string as arg2:
+	>>> add_integer(4, "School")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+Testing the value (None):
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+						========================
+========================= OverflowError Outputs ===========================
+						========================
+
+Testing with infinity numbers:
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(5, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+						=====================
+========================= ValueError Outputs ===========================
+						=====================
+
+Testing with NaN numbers:
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+    >>> add_integer(5, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
