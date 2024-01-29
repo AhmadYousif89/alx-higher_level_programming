@@ -1,0 +1,119 @@
+This is a doctest file for the module ``2-matrix_divided.py``
+=============================================================
+
+Importing the ``matrix_divided`` function
+=========================================
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Usage
+=====
+
+The ``matrix_divided(matrix, div)`` function takes two arguments:
+-  matrix: Type (list of lists) with each sub-list has type of (list[int or float]) with equal sub-list sizes
+- 	  div: Type (int)
+-  Return: A new matrix
+- Example: matrix_divided([[1, 2], [3, 4]], 3) outputs: [[0.33, 0.67], [1.0, 1.33]]
+
+Test cases:
+===========
+						=================
+========================= Valid Outputs ===========================
+						=================
+Testing empty matrix list:
+	>>> matrix_divided([[]], 3)
+	[[]]
+
+Testing a matrix list with only one sub-list:
+	>>> matrix_divided([[1, 2]], 3)
+	[[0.33, 0.67]]
+
+Testing a matrix with all elements being integers:
+	>>> matrix_divided([[1, 2], [3, 4]], 3)
+	[[0.33, 0.67], [1.0, 1.33]]
+
+Testing a matrix with zero as an element and divisor equals 2:
+	>>> matrix_divided([[1, 2], [0, 4]], 2)
+	[[0.5, 1.0], [0.0, 2.0]]
+
+Testing a matrix with a mix of positive and negative numbers:
+	>>> matrix_divided([[-1, 2], [-3, 4]], 2)
+	[[-0.5, 1.0], [-1.5, 2.0]]
+
+Testing a matrix list that has a negative integer divisor equals -3:
+	>>> matrix_divided([[1, 2], [3, 4]], -3)
+	[[-0.33, -0.67], [-1.0, -1.33]]
+
+Testing a matrix list that has a positive float divisor equals 3.5:
+	>>> matrix_divided([[1, 2], [3, 4]], 3.5)
+	[[0.29, 0.57], [0.86, 1.14]]
+
+Testing a matrix with all elements being floats:
+	>>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2.5)
+	[[0.6, 1.0], [1.4, 1.8]]
+
+Testing a matrix list that has a negative float divisor equals -3.5:
+	>>> matrix_divided([[1, 2], [3, 4]], -3.5)
+	[[-0.29, -0.57], [-0.86, -1.14]]
+
+Testing a matrix with a large number of rows and columns:
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 2)
+	[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+
+Testing a matrix list that has big positive numbers and divisor equals 999_999_999:
+	>>> matrix_divided([[466_878_964, 762_855_999], [920_962_423, 632_630_721]], 999_999_999)
+	[[0.47, 0.76], [0.92, 0.63]]
+
+Testing a matrix list that has big negative numbers and divisor equals 999_999_999:
+	>>> matrix_divided([[-466_878_964, -762_855_999], [-920_962_423, -632_630_721]], 999_999_999)
+	[[-0.47, -0.76], [-0.92, -0.63]]
+
+Testing a matrix list that has big positive numbers and a negative divisor equals -999_999_999:
+	>>> matrix_divided([[466_878_964, 762_855_999], [920_962_423, 632_630_721]], -999_999_999)
+	[[-0.47, -0.76], [-0.92, -0.63]]
+
+Testing a matrix list that has big negative numbers and a negative divisor equals -999_999_999:
+	>>> matrix_divided([[-466_878_964, -762_855_999], [-920_962_423, -632_630_721]], -999_999_999)
+	[[0.47, 0.76], [0.92, 0.63]]
+
+						====================
+========================= TypeError Outputs ===========================
+						====================
+
+Testing empty matrix list:
+	>>> matrix_divided([], 3)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing with wrong type of matrix:
+	>>> matrix_divided(None, 3)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing a matrix with wrong element types (matrix[1]):
+	>>> matrix_divided([[1, 2], ['3', '4']], 3)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing a matrix with wrong element types (matrix[0]):
+	>>> matrix_divided([['1', '2'], [3, 4]], 3)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing a matrix with unequal row sizes:
+	>>> matrix_divided([[1, 2], [3, 4, 5]], 3)
+	Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
+
+Testing a matrix with wrong divisor type (None):
+	>>> matrix_divided([[1, 2], [3, 4]], None)
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+						============================
+========================= ZeroDivisionError Outputs ===========================
+						============================
+
+Testing a matrix with a zero divisor:
+	>>> matrix_divided([[1, 2], [3, 4]], 0)
+	Traceback (most recent call last):
+	ZeroDivisionError: division by zero
