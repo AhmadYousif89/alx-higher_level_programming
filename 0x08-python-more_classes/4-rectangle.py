@@ -19,7 +19,12 @@ class Rectangle:
         """
         Return a Rectangle representation in a string shape using the (#)s
         """
-        return '\n'.join(['#' * self.__width for _ in range(self.__height)])
+        result = ""
+        if self.__width == 0 or self.__height == 0:
+            return result
+        for _ in range(self.__height):
+            result += '#' * self.__width + '\n'
+        return result.strip()
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"
