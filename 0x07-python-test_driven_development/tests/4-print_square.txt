@@ -1,0 +1,74 @@
+This is a doctest file for the module ``4-print_square.py``
+===========================================================
+
+Importing the ``print_square`` function
+=======================================
+	>>> print_square = __import__('4-print_square').print_square
+
+Usage
+=====
+
+The ``print_square(size=0)`` function takes one argument:
+- size (type int): The size of the square, defaults to (0).
+- Example: print_square(1) outputs: #
+
+Test cases:
+===========
+						================
+========================= Valid Outputs ===========================
+						================
+
+Testing with size equals zero:
+	>>> print_square(0)
+
+Testing with size equals 1:
+	>>> print_square(1)
+	#
+
+Testing with size equals 2:
+	>>> print_square((2))
+	##
+	##
+
+						====================
+========================= TypeError Outputs ===========================
+						====================
+
+Testing with no input value:
+	>>> print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'
+
+Testing with wrong input type (None):
+	>>> print_square(None)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+Testing with wrong input type (string):
+	>>> print_square("2")
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+Testing with infinity numbers:
+    >>> print_square(float('inf'))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Testing with NaN numbers:
+    >>> print_square(float('nan'))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Testing with float number:
+    >>> print_square(10.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+						=====================
+========================= ValueError Outputs ===========================
+						=====================
+
+Testing with a negative size value:
+	>>> print_square(-2)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
