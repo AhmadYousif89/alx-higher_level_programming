@@ -2,11 +2,13 @@
 """Defines a Rectangle class."""
 
 
-from typing import Any
-
-
 class Rectangle:
-    """Create a Rectangle class"""
+    """
+    Create a Rectangle class.
+    Attributes:
+    - number_of_instances type(int): The number of Rectangle instances.
+    - print_symbol type(any): The symbol used for string representation.
+    """
 
     number_of_instances = 0
     print_symbol = '#'
@@ -26,12 +28,10 @@ class Rectangle:
         """
         Return a Rectangle representation in a string shape using the (#)s
         """
-        result = ""
-        if self.__width == 0 or self.__height == 0:
-            return result
-        for _ in range(self.__height):
-            result += str(self.print_symbol) * self.__width + '\n'
-        return result.strip()
+        if not self.__width or not self.__height:
+            return ""
+        result = (str(self.print_symbol) * self.__width + '\n') * self.__height
+        return result[:-1]
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
