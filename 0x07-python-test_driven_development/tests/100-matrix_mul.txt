@@ -1,0 +1,124 @@
+This is a doctest file for the module ``100-matrix_mul.py``
+===========================================================
+
+Importing the ``matrix_mul`` function
+=====================================
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Usage
+=====
+
+The ``matrix_mul(m_a, m_b)`` function takes two arguments:
+- m_a	: The first matrix
+- m_b	: The second matrix
+- Return: A new matrix after multiplication
+- Example: matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]) outputs: [[7, 10], [15, 22]]
+
+Test cases:
+===========
+						=================
+========================= Valid Outputs ===========================
+						=================
+
+Testing matrices with a single-element matrix:
+    >>> matrix_mul([[2]], [[3]])
+    [[6]]
+
+Testing matrices with equal inner list sizes:
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    [[7, 10], [15, 22]]
+
+Testing matrices with different inner list sizes:
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6, 7], [8, 9, 10]])
+    [[21, 24, 27], [47, 54, 61]]
+
+Testing matrices with a mix of integers and floats:
+    >>> matrix_mul([[1.0, 2.5], [3.2, 4.8]], [[2, 3], [4, 5]])
+    [[12.0, 15.5], [25.6, 33.6]]
+
+Testing multiplication of identity matrices:
+    >>> matrix_mul([[1, 0], [0, 1]], [[2, 3], [4, 5]])
+    [[2, 3], [4, 5]]
+
+Testing multiplication of a matrix with the identity matrix:
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 0], [0, 1]])
+    [[1, 2], [3, 4]]
+
+Testing multiplication of matrices with all zero elements:
+    >>> matrix_mul([[0, 0], [0, 0]], [[1, 2], [3, 4]])
+    [[0, 0], [0, 0]]
+
+Testing multiplication of matrices with negative elements:
+    >>> matrix_mul([[-1, -2], [-3, -4]], [[5, 6], [7, 8]])
+    [[-19, -22], [-43, -50]]
+
+Testing multiplication of matrices with large values:
+    >>> matrix_mul([[10**6, 2], [3, 4]], [[5, 6], [7, 8]])
+    [[5000014, 6000016], [43, 50]]
+
+Testing multiplication of large matrices:
+    >>> matrix_mul([[1, 2, 3, 4], [5, 6, 7, 8]], [[9, 10], [11, 12], [13, 14], [15, 16]])
+    [[130, 140], [322, 348]]
+
+						====================
+========================= TypeError Outputs ===========================
+						====================
+
+Testing with wrong type of matrix A (None):
+	>>> matrix_mul(None, [])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list
+
+Testing with wrong type of matrix B (None):
+	>>> matrix_mul([[1]], None)
+	Traceback (most recent call last):
+	TypeError: m_b must be a list
+
+Testing for "m_a must be a list of lists"
+	>>> matrix_mul([1, 2, 3], [[4, 5], [6, 7]])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list of lists
+
+Testing for "m_b must be a list of lists"
+	>>> matrix_mul([[1, 2], [3, 4]], [5, 6, 7])
+	Traceback (most recent call last):
+	TypeError: m_b must be a list of lists
+
+Testing matrices with non-numeric elements:
+    >>> matrix_mul([["a", "b"]], [[1, 2]])
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+Testing matrices with non-numeric elements:
+    >>> matrix_mul([[1, 2]], [["c", "d"]])
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+Testing with matrix A having different inner list sizes:
+	>>> matrix_mul([[1, 2, 3], [4, 5]], [[6, 7], [8, 9]])
+	Traceback (most recent call last):
+	TypeError: each row of m_a must be of the same size
+
+Testing with matrix B having different inner list sizes:
+	>>> matrix_mul([[1, 2], [3, 4]], [[5, 6, 7], [8, 9]])
+	Traceback (most recent call last):
+	TypeError: each row of m_b must be of the same size
+
+						====================
+========================= ValueError Outputs ===========================
+						====================
+
+Testing with an empty matrix A:
+	>>> matrix_mul([[]], [[1]])
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+
+Testing matrix A with empty matrix B:
+	>>> matrix_mul([[1]], [[]])
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+
+Testing for "m_a and m_b can't be multiplied"
+	>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8], [9, 10]])
+	Traceback (most recent call last):
+	ValueError: m_a and m_b can't be multiplied
