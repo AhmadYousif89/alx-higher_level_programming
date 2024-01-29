@@ -3,4 +3,6 @@
 
 
 class Rectangle:
+    """Create a Rectangle class"""
+
     pass
