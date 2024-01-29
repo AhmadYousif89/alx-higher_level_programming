@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Defines the functions for solving the nqueens puzzle."""
+import sys
 
 
 def main():
@@ -48,36 +49,34 @@ def nqueens_puzzle(N):
     board = [[0 for _ in range(N)] for _ in range(N)]
     results = []
 
-    results = solve_puzzle(board, 0, N, results)
+    solve_puzzle(board, 0, N, results)
 
     for solution in results:
-        for r, c in enumerate(solution):
-            print(f'[{r}, {c}]', end=' ' if r != len(solution) - 1 else '\n')
+        print(solution)
 
 
 def solve_puzzle(board, row, N, results):
     """
-    Defines the logic for solving the nqueen puzzle.
+    Solves the N-Queens puzzle recursively.
     Args:
     - board (list): The current working chessboard.
-    - row (int): The queen last position on a row.
+    - row (int): The queen's current row position.
     - N (int): The number of queens.
-    - results: matrix containing all the chessboards.
+    - results (list): Matrix containing all the chessboards.
+    Returns:
+    - list: Updated results matrix.
     """
     # Base case: all queens are placed
     # add the current solution to the results
     if row == N:
-        results.append([r for r in board])
-        return results
+        results.append([[i, board[i]] for i in range(N)])
+        return
 
     # Try placing a queen in each row of the current column
     for col in range(N):
         if is_safe(board, row, col):
             board[row] = col
-            # Recusively move to next row
-            results = solve_puzzle(board, row + 1, N, results)
-
-    return results
+            solve_puzzle(board, row + 1, N, results)
 
 
 def is_safe(board, row, col):
@@ -87,6 +86,8 @@ def is_safe(board, row, col):
     - board (list): The current working chessboard.
     - row (int): The queen last position on a row.
     - col (int): The queen last position on a col.
+    Return:
+    - True if it's safe to place the queen or False otherwise.
     """
     # Check if there is a queen in the same column
     for i in range(row):
@@ -100,6 +101,4 @@ def is_safe(board, row, col):
 
 
 if __name__ == "__main__":
-    import sys
-
     main()
