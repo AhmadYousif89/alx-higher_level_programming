@@ -53,7 +53,14 @@ def nqueens_puzzle(N):
 
 
 def solve_puzzle(board, row, N, results):
-    """Defines the logic for solving the nqueen puzzle."""
+    """
+    Defines the logic for solving the nqueen puzzle.
+    Args:
+    - board (list): The current working chessboard.
+    - row (int): The queen last position on a row.
+    - N (int): The number of queens.
+    - results: matrix containing all the chessboards.
+    """
     # Base case: all queens are placed
     # add the current solution to the results
     if row == N:
@@ -69,7 +76,13 @@ def solve_puzzle(board, row, N, results):
 
 
 def is_safe(board, row, col):
-    """Helper function that checks the board before placing a queen"""
+    """
+    Helper function that checks the board before placing a queen.
+    Args:
+    - board (list): The current working chessboard.
+    - row (int): The queen last position on a row.
+    - col (int): The queen last position on a col.
+    """
     # Check if there is a queen in the same column
     for i in range(row):
         if (
