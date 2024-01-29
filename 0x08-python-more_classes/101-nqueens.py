@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Defines the functions for solving the nqueens puzzle."""
+
+
 def main():
     """Entry point function"""
     if len(sys.argv) != 2:
@@ -52,13 +55,6 @@ def nqueens_puzzle(N):
             print(f'[{r}, {c}]', end=' ' if r != len(solution) - 1 else '\n')
 
 
-def custom_deepcopy(board):
-    """Return a deepcopy of the chessboard."""
-    if isinstance(board, list):
-        return list(map(custom_deepcopy, board))
-    return board
-
-
 def solve_puzzle(board, row, N, results):
     """
     Defines the logic for solving the nqueen puzzle.
@@ -71,7 +67,7 @@ def solve_puzzle(board, row, N, results):
     # Base case: all queens are placed
     # add the current solution to the results
     if row == N:
-        results.append(custom_deepcopy(board))
+        results.append([r for r in board])
         return results
 
     # Try placing a queen in each row of the current column
@@ -104,7 +100,6 @@ def is_safe(board, row, col):
 
 
 if __name__ == "__main__":
-    """Defines the functions for solving the nqueens puzzle."""
     import sys
 
     main()
