@@ -64,7 +64,7 @@ def solve_puzzle(board, row, N, results):
     # Base case: all queens are placed
     # add the current solution to the results
     if row == N:
-        results.append(board.copy())
+        results.append(board)
         return
 
     # Try placing a queen in each row of the current column
