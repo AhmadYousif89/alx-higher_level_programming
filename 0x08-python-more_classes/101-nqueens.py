@@ -45,7 +45,7 @@ def nqueens_puzzle(N):
     board = [[0 for _ in range(N)] for _ in range(N)]
     results = []
 
-    solve_puzzle(board, 0, N, results)
+    results = solve_puzzle(board, 0, N, results)
 
     for solution in results:
         for r, c in enumerate(solution):
@@ -72,14 +72,16 @@ def solve_puzzle(board, row, N, results):
     # add the current solution to the results
     if row == N:
         results.append(custom_deepcopy(board))
-        return
+        return results
 
     # Try placing a queen in each row of the current column
     for col in range(N):
         if is_safe(board, row, col):
             board[row] = col
             # Recusively move to next row
-            solve_puzzle(board, row + 1, N, results)
+            results = solve_puzzle(board, row + 1, N, results)
+
+    return results
 
 
 def is_safe(board, row, col):
