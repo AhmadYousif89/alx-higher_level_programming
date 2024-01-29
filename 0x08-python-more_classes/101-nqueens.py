@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Defines the functions for solving the nqueens puzzle."""
+
+
 def main():
     """Entry point function"""
     if len(sys.argv) != 2:
@@ -48,10 +51,8 @@ def nqueens_puzzle(N):
     solve_puzzle(board, 0, N, results)
 
     for solution in results:
-        for row, col in enumerate(solution):
-            print(
-                f'[{row}, {col}]', end=' ' if row != len(solution) - 1 else '\n'
-            )
+        for r, c in enumerate(solution):
+            print(f'[{r}, {c}]', end=' ' if r != len(solution) - 1 else '\n')
 
 
 def solve_puzzle(board, row, N, results):
