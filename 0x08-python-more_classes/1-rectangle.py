@@ -7,13 +7,13 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """
-        Initialize the Rectangle class.
+        Initialize new Rectangle object.
         Args:
         - width (optional): type int defaults to 0
         - height (optional): type int defaults to 0
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
