@@ -20,7 +20,7 @@ def matrix_divided(matrix, div):
     """
     # check if the matrix or its sub-lists are of type list
     if (
-        matrix == None
+        matrix is None
         or len(matrix) == 0
         or not isinstance(matrix, list)
         or any(not isinstance(arr, list) for arr in matrix)
