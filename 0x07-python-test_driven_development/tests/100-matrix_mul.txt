@@ -64,6 +64,16 @@ Testing multiplication of large matrices:
 ========================= TypeError Outputs ===========================
 						====================
 
+Testing with one missing argument:
+	>>> matrix_mul([])
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+Testing with no arguments:
+	>>> matrix_mul()
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
 Testing with wrong type of matrix A (None):
 	>>> matrix_mul(None, [])
 	Traceback (most recent call last):
