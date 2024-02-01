@@ -23,6 +23,11 @@ class TestMaxInteger(unittest.TestCase):
         result = max_integer([3, 2, 4, 1])
         self.assertEqual(result, 4)
 
+    def test_max_at_beginning(self):
+        """Test with a single element in the list."""
+        result = max_integer([10, 9])
+        self.assertEqual(result, 10)
+
     def test_single_element_list(self):
         """Test with a single element in the list."""
         result = max_integer([1])
