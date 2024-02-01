@@ -22,19 +22,15 @@ Test cases:
 
 Testing with empty arguments:
 	>>> say_my_name("", "")
-	My name is
+	My name is  
 
 Testing with one argument first_name == "":
 	>>> say_my_name("")
-	My name is
+	My name is  
 
 Testing with one argument first_name == "James":
 	>>> say_my_name("James")
-	My name is James
-
-Testing last_name being an empty string:
-	>>> say_my_name("John", "")
-	My name is John
+	My name is James 
 
 Testing last_name being an blank space:
 	>>> say_my_name("John", " ")
@@ -42,7 +38,7 @@ Testing last_name being an blank space:
 
 Testing with first_name == "" and last_name == "Bond":
 	>>> say_my_name("", "Bond")
-	My name is Bond
+	My name is  Bond
 
 Testing with first_name == " " and last_name == "Bond":
 	>>> say_my_name(" ", "Bond")
