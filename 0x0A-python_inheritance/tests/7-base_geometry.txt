@@ -1,0 +1,112 @@
+This is a doctest file for the module ``7-base_geometry.py``
+==========================================================
+
+Importing the ``BaseGeometry`` Class
+======================================
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Usage
+=====
+
+``BaseGeometry`` class defines the basic shape for a geometry shape.
+	- Methods:
+		area: Gets the area of the shape.
+		integer_validator: Validates the value of a given integer.
+
+Test cases:
+===========
+						================
+========================= General Tests ===========================
+						================
+
+# Test 1: Module - Docstring
+	>>> doc = __import__("7-base_geometry").__doc__
+	>>> len(doc) > 1
+	True
+
+
+# Test 2: Class - Docstring
+	>>> doc = __import__("7-base_geometry").BaseGeometry.__doc__
+	>>> len(doc) > 1
+	True
+
+# Test 3: Method -> integer_validator - Docstring
+	>>> doc = __import__("7-base_geometry").BaseGeometry.area.__doc__
+	>>> len(doc) > 1
+	True
+
+# Test 4: Method -> area - Docstring
+	>>> doc = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+	>>> len(doc) > 1
+	True
+
+# Test 5: Area method exception
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("test", 5)
+	>>> bg.area()
+	Traceback (most recent call last):
+		...
+	Exception: area() is not implemented
+
+						================
+========================= Valid Outputs ===========================
+						================
+
+# Test 1:
+	>>> bg = BaseGeometry()
+	>>> try:
+	...     bg.integer_validator("width", "N/A")
+	... except Exception as e:
+	...     print("[{}] {}".format(e.__class__.__name__, e))
+	[TypeError] width must be an integer
+
+# Test 2:
+	>>> bg = BaseGeometry()
+	>>> try:
+	...     bg.integer_validator("height", 0)
+	... except Exception as e:
+	...     print("[{}] {}".format(e.__class__.__name__, e))
+	[ValueError] height must be greater than 0
+
+						====================
+========================= ValueError Outputs ===========================
+						====================
+
+# Test 1: Validating integer input less than or equal to 0
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("width", -3)
+	Traceback (most recent call last):
+		...
+	ValueError: width must be greater than 0
+
+# Test 2: Validating integer input less than or equal to 0
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("height", 0)
+	Traceback (most recent call last):
+		...
+	ValueError: height must be greater than 0
+
+						===================
+========================= TypeError Outputs ===========================
+						===================
+
+# Test 1: Validating non-integer input
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("width", "string")
+	Traceback (most recent call last):
+		...
+	TypeError: width must be an integer
+
+# Test 2: Validating integer_validator with missing 1 argument
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("w")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+	
+# Test 3: Validating integer_validator with missing 2 arguments
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
