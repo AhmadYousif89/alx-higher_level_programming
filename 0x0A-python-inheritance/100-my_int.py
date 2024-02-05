@@ -8,16 +8,10 @@ class MyInt(int):
     A rebel that inverts == and != operators.
     """
 
-    def __eq__(self, other):
+    def __eq__(self, value):
         """Overrides the == operator."""
-        return super().__ne__(other)
+        return super().__ne__(value)
 
-    def __ne__(self, other):
+    def __ne__(self, value):
         """Overrides the != operator."""
-        return super().__eq__(other)
-
-
-my_i = MyInt(3)
-print(my_i)
-print(my_i == 3)
-print(my_i != 3)
+        return super().__eq__(value)
