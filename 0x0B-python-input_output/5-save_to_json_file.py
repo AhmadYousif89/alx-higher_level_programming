@@ -13,7 +13,8 @@ def save_to_json_file(my_obj, filename):
 
     Example:
         save_to_json_file({"key": "value"}, "output.json")
-        This will save the dictionary {"key": "value"} to a file named "output.json".
+        The dictionary {"key": "value"}
+        will be saved to a file named "output.json".
     """
     with open(filename, mode='w') as file:
         file.write(json.dumps(my_obj))

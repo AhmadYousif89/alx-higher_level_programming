@@ -8,14 +8,15 @@ def load_from_json_file(filename):
     Load an object from a JSON file.
 
     Args:
-    - filename (str): The name of the file from which the object will be loaded.
+    - filename (str): The name of the file.
 
     Returns:
     The object loaded from the JSON file.
 
     Example:
         loaded_data = load_from_json_file("input.json")
-        This will load the content of the "input.json" file and return the corresponding Python object.
+        This will load the content of the "input.json" file
+        and return the corresponding object.
     """
     with open(filename) as file:
         content = file.read()

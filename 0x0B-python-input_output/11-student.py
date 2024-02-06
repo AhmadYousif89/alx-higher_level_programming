@@ -90,7 +90,8 @@ class Student:
 # print(type(student_1))
 # print(type(j_student_1))
 # print(
-#     "{} {} {}".format(student_1.first_name, student_1.last_name, student_1.age)
+#     "{} {} {}".format(student_1.first_name,
+#                       student_1.last_name, student_1.age)
 # )
 
 
