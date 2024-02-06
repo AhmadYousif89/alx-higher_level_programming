@@ -57,8 +57,20 @@ class Student:
         return json_dict
 
     def reload_from_json(self, json):
-        self.__dict__.clear()
-        self.__dict__.update(json)
+        """
+        Replace all attributes of an instance.
+
+        Args:
+            json (dict): The key/value pairs to replace the attributes.
+        """
+        if not isinstance(json, dict):
+            raise TypeError(f"{json} is not of type dict")
+
+        try:
+            self.__dict__.clear()
+            self.__dict__.update(json)
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 
 # import os
