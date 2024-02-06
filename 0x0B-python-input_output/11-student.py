@@ -57,14 +57,8 @@ class Student:
         return json_dict
 
     def reload_from_json(self, json):
-        if not isinstance(json, dict):
-            raise TypeError(f"{json} is not of type dict")
-
-        try:
-            self.__dict__.clear()
-            self.__dict__.update(json)
-        except Exception as e:
-            print(f"An error occurred: {e}")
+        self.__dict__.clear()
+        self.__dict__.update(json)
 
 
 # import os
