@@ -66,11 +66,8 @@ class Student:
         if not isinstance(json, dict):
             raise TypeError(f"{json} is not of type dict")
 
-        try:
-            self.__dict__.clear()
-            self.__dict__.update(json)
-        except Exception as e:
-            print(f"An error occurred: {e}")
+        for key, value in json.items():
+            setattr(self, key, value)
 
 
 # import os
