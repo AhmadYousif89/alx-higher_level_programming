@@ -26,11 +26,10 @@ def add_args_to_file(argv):
     filename = "add_item.json"
     try:
         my_list = parse_json(filename)
-    except (FileNotFoundError, Exception):
+    except FileNotFoundError:
         my_list = []
     my_list.extend(argv)
     stringfy(my_list, filename)
-    print(my_list)
 
 
 if __name__ == "__main__":
