@@ -21,12 +21,6 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            if count == 10:
-                log_stats()
-                count = 1
-            else:
-                count += 1
-
             line = line.split()
 
             try:
@@ -43,6 +37,9 @@ if __name__ == "__main__":
             except IndexError:
                 pass
 
+            count += 1
+            if count % 10 == 0:
+                log_stats()
         log_stats()
 
     except KeyboardInterrupt:
