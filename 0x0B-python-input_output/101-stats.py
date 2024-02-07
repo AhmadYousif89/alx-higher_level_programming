@@ -21,21 +21,18 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            line = line.split()
-            if len(line) > 1:
-                size += int(line[-1])
-                code = line[-2]
+            line_segments = line.split()
+            if len(line_segments) > 1:
+                size += int(line_segments[-1])
+                code = line_segments[-2]
                 if code in valid_codes:
                     if status_codes.get(code, -1) == -1:
                         status_codes[code] = 1
                     else:
                         status_codes[code] += 1
-
             count += 1
             if count % 10 == 0:
                 log_stats()
         log_stats()
-
     except KeyboardInterrupt:
         log_stats()
-        raise
