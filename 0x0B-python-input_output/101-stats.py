@@ -22,20 +22,14 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             line = line.split()
-
-            try:
+            if len(line) > 1:
                 size += int(line[-1])
-            except (IndexError, ValueError):
-                pass
-
-            try:
-                if line[-2] in valid_codes:
-                    if status_codes.get(line[-2], -1) == -1:
-                        status_codes[line[-2]] = 1
+                code = line[-2]
+                if code in valid_codes:
+                    if status_codes.get(code, -1) == -1:
+                        status_codes[code] = 1
                     else:
-                        status_codes[line[-2]] += 1
-            except IndexError:
-                pass
+                        status_codes[code] += 1
 
             count += 1
             if count % 10 == 0:
