@@ -56,7 +56,7 @@ def print_statistics(size, status_codes):
     print(f"File Size: {size}")
     for key, value in sorted(status_codes.items()):
         if value > 0:
-            print(f"{key}: {value}")
+            print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
