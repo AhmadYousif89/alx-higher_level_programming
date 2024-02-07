@@ -23,15 +23,11 @@ def main():
             line_segments = line.split()
             total_size += int(line_segments[-1])
             code = line_segments[-2]
-
-            # Using defaultdict behavior to handle initialization automatically
             status_codes[code] += 1
-
             counter += 1
-
             if counter % 10 == 0:
                 print_statistics(total_size, status_codes)
-
+        print_statistics(total_size, status_codes)
     except EOFError:
         print_statistics(total_size, status_codes)
 
