@@ -1,46 +1,8 @@
 #!/usr/bin/python3
-"""Define the main functions to process some metrics."""
-import sys
+"""Define the Log parser functions."""
 
 
-def main():
-    """
-    Reads input lines from sys.stdin, processes each line, and prints
-    statistics every 10 lines or after a keyboard interruption.
-
-    Metrics computed:
-    - Total file size
-    - Number of lines by status code (200, 301, 400, 401, 403, 404, 405, 500)
-    """
-    counter = 0
-    total_size = 0
-    status_codes = {
-        "200": 0,
-        "301": 0,
-        "400": 0,
-        "401": 0,
-        "403": 0,
-        "404": 0,
-        "405": 0,
-        "500": 0,
-    }
-    try:
-        for line in sys.stdin:
-            line_segments = line.split()
-            if len(line_segments) > 1:
-                total_size += int(line_segments[-1])
-                code = line_segments[-2]
-                if code in status_codes:
-                    status_codes[code] += 1
-            counter += 1
-            if counter % 10 == 0:
-                print_statistics(total_size, status_codes)
-        print_statistics(total_size, status_codes)
-    except KeyboardInterrupt:
-        print_statistics(total_size, status_codes)
-
-
-def print_statistics(size, status_codes):
+def log_stats(size, status_codes):
     """
     Prints statistics based on the provided file size and status code dict.
 
@@ -56,8 +18,36 @@ def print_statistics(size, status_codes):
     print(f"File Size: {size}")
     for key, value in sorted(status_codes.items()):
         if value > 0:
-            print("{}: {}".format(key, value))
+            print(f"{key}: {value}")
 
+
+counter = 0
+total_size = 0
+status_codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0,
+}
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    try:
+        for line in sys.stdin:
+            line_segments = line.split()
+            if len(line_segments) > 1:
+                total_size += int(line_segments[-1])
+                code = line_segments[-2]
+                if code in status_codes:
+                    status_codes[code] += 1
+            counter += 1
+            if counter % 10 == 0:
+                log_stats(total_size, status_codes)
+        log_stats(total_size, status_codes)
+    except KeyboardInterrupt:
+        log_stats(total_size, status_codes)
