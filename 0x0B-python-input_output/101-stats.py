@@ -20,22 +20,17 @@ status_codes = {
 def log_stats():
     """
     Prints statistics based on the provided file size and status code dict.
-
-    Prints:
-    - File size: Total file size.
-    - Number of lines for each status code.
-    - Only prints statistics for status codes that have appeared in the input.
     """
-    print(f"File Size: {total_size}")
+    print("File Size: {}".format(total_size))
     for key, value in sorted(status_codes.items()):
         if value > 0:
-            print(f"{key}: {value}")
+            print("{:s}: {:d}".format(key, value))
 
 
 try:
     for line in sys.stdin:
         line_segments = line.split()
-        if len(line_segments) >= 2:
+        if len(line_segments) > 1:
             total_size += int(line_segments[-1])
             code = line_segments[-2]
             if code in status_codes:
