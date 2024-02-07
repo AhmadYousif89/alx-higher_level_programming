@@ -21,14 +21,12 @@ def main():
             line_segments = line.split()
             total_size += int(line_segments[-1])
             code = line_segments[-2]
-            if code in status_codes:
-                status_codes[code] += 1
-            else:
-                status_codes[code] = 0
+            status_codes[code] += 1
             counter += 1
             if counter % 10 == 0:
                 print_statistics(total_size, status_codes)
-    except EOFError:
+        print_statistics(total_size, status_codes)
+    except KeyboardInterrupt:
         print_statistics(total_size, status_codes)
 
 
