@@ -6,11 +6,8 @@ from collections import defaultdict
 
 def main():
     """
-    Reads input lines from sys.stdin, processes each line, and prints statistics
-    every 10 lines or after a keyboard interruption (EOFError).
-
-    The input lines are expected to have the format:
-    <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
+    Reads input lines from sys.stdin, processes each line, and prints
+    statistics every 10 lines or after a keyboard interruption.
 
     Metrics computed:
     - Total file size
@@ -24,10 +21,7 @@ def main():
             line_segments = line.split()
             total_size += int(line_segments[-1])
             code = line_segments[-2]
-            if code in status_codes:
-                status_codes[code] += 1
-            else:
-                status_codes[code] = 0
+            status_codes[code] += 1
             counter += 1
             if counter % 10 == 0:
                 print_statistics(total_size, status_codes)
@@ -41,7 +35,7 @@ def print_statistics(size, status_codes):
 
     Args:
     - size (int): Total file size.
-    - status_codes (dict): Dictionary containing counts for different status codes.
+    - status_codes (dict): A dict containing counts for different status codes.
 
     Prints:
     - File size: Total file size.
@@ -50,7 +44,8 @@ def print_statistics(size, status_codes):
     """
     print(f"File Size: {size}")
     for key, value in sorted(status_codes.items()):
-        print(f"{key}: {value}")
+        if value > 0:
+            print(f"{key}: {value}")
 
 
 if __name__ == "__main__":
