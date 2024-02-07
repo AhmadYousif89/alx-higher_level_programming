@@ -15,7 +15,16 @@ def main():
     """
     counter = 0
     total_size = 0
-    status_codes = {}
+    status_codes = {
+        "200": 0,
+        "301": 0,
+        "400": 0,
+        "401": 0,
+        "403": 0,
+        "404": 0,
+        "405": 0,
+        "500": 0,
+    }
     try:
         for line in sys.stdin:
             line_segments = line.split()
@@ -23,8 +32,6 @@ def main():
             code = line_segments[-2]
             if code in status_codes:
                 status_codes[code] += 1
-            else:
-                status_codes[code] = 0
             counter += 1
             if counter % 10 == 0:
                 print_statistics(total_size, status_codes)
