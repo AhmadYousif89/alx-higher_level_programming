@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Define the Log parser functions."""
+import sys
 
 
 def log_stats(size, status_codes):
@@ -34,20 +35,18 @@ status_codes = {
     "500": 0,
 }
 
-if __name__ == "__main__":
-    import sys
 
-    try:
-        for line in sys.stdin:
-            line_segments = line.split()
-            if len(line_segments) > 1:
-                total_size += int(line_segments[-1])
-                code = line_segments[-2]
-                if code in status_codes:
-                    status_codes[code] += 1
-            counter += 1
-            if counter % 10 == 0:
-                log_stats(total_size, status_codes)
-        log_stats(total_size, status_codes)
-    except KeyboardInterrupt:
-        log_stats(total_size, status_codes)
+try:
+    for line in sys.stdin:
+        line_segments = line.split()
+        if len(line_segments) > 1:
+            total_size += int(line_segments[-1])
+            code = line_segments[-2]
+            if code in status_codes:
+                status_codes[code] += 1
+        counter += 1
+        if counter % 10 == 0:
+            log_stats(total_size, status_codes)
+    log_stats(total_size, status_codes)
+except KeyboardInterrupt:
+    log_stats(total_size, status_codes)
