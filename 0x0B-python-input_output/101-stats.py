@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Define the main functions to process some metrics."""
 import sys
-from collections import defaultdict
 
 
 def main():
@@ -28,10 +27,11 @@ def main():
     try:
         for line in sys.stdin:
             line_segments = line.split()
-            total_size += int(line_segments[-1])
-            code = line_segments[-2]
-            if code in status_codes:
-                status_codes[code] += 1
+            if len(line_segments) > 1:
+                total_size += int(line_segments[-1])
+                code = line_segments[-2]
+                if code in status_codes:
+                    status_codes[code] += 1
             counter += 1
             if counter % 10 == 0:
                 print_statistics(total_size, status_codes)
