@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Define the main functions to process some metrics."""
 import sys
 from collections import defaultdict
 
