@@ -48,5 +48,5 @@ try:
         if counter % 10 == 0:
             log_stats(total_size, status_codes)
     log_stats(total_size, status_codes)
-except KeyboardInterrupt:
+except KeyboardInterrupt as e:
     log_stats(total_size, status_codes)
