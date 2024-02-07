@@ -2,26 +2,6 @@
 """Define the Log parser functions."""
 import sys
 
-
-def log_stats(size, status_codes):
-    """
-    Prints statistics based on the provided file size and status code dict.
-
-    Args:
-    - size (int): Total file size.
-    - status_codes (dict): A dict containing counts for different status codes.
-
-    Prints:
-    - File size: Total file size.
-    - Number of lines for each status code.
-    - Only prints statistics for status codes that have appeared in the input.
-    """
-    print(f"File Size: {size}")
-    for key, value in sorted(status_codes.items()):
-        if value > 0:
-            print(f"{key}: {value}")
-
-
 counter = 0
 total_size = 0
 status_codes = {
@@ -36,6 +16,25 @@ status_codes = {
 }
 
 
+def log_stats():
+    """
+    Prints statistics based on the provided file size and status code dict.
+
+    Args:
+    - size (int): Total file size.
+    - status_codes (dict): A dict containing counts for different status codes.
+
+    Prints:
+    - File size: Total file size.
+    - Number of lines for each status code.
+    - Only prints statistics for status codes that have appeared in the input.
+    """
+    print(f"File Size: {total_size}")
+    for key, value in sorted(status_codes.items()):
+        if value > 0:
+            print(f"{key}: {value}")
+
+
 try:
     for line in sys.stdin:
         line_segments = line.split()
@@ -46,7 +45,7 @@ try:
                 status_codes[code] += 1
         counter += 1
         if counter % 10 == 0:
-            log_stats(total_size, status_codes)
-    log_stats(total_size, status_codes)
-except KeyboardInterrupt as e:
-    log_stats(total_size, status_codes)
+            log_stats()
+    log_stats()
+except KeyboardInterrupt:
+    log_stats()
