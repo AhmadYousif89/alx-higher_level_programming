@@ -2,7 +2,14 @@
 
 This repository showcases a practical application of various Python skills and techniques. Mastering the object-oriented programming through the context of implementing and testing classes related to geometric shapes **(Rectangles and Squares)**.
 
-These three classes extensively utilize a range of Python tools, including:
+In this project, we are implementing three classes: 
+- Base class: The foundational class serving as a common structure for the other geometric shapes.
+
+- Rectangle class: Inherits from the Base class, representing rectangles and inheriting the fundamental properties defined in the Base class.
+
+- Square class: Inherits from the Rectangle class, showcasing the principles of multi-level inheritance. This class specializes in representing squares, building upon the characteristics defined in both the Base and Rectangle classes.
+
+These three classes make extensive use of various Python tools and features, including:
 
 - Import statements
 - Exception handling
@@ -20,16 +27,16 @@ These three classes extensively utilize a range of Python tools, including:
 
 1. models
 
-    - [base.py](base.py)
-    - [rectangle.py](rectangle.py)
-    - [square.py](square.py)
+    - [base.py](models/base.py)
+    - [rectangle.py](models/rectangle.py)
+    - [square.py](models/square.py)
 
 2. tests
 
-	- [general_tests.py](general_tests.py)
-	- [test_base.py](test_base.py)
-	- [test_rectangle.py](test_rectangle.py)
-	- [test_square.py](test_square.py)
+	- [general_tests.py](tests/general_tests.py)
+	- [test_base.py](tests/test_base.py)
+	- [test_rectangle.py](tests/test_rectangle.py)
+	- [test_square.py](tests/test_square.py)
 
 ### Testing
 
