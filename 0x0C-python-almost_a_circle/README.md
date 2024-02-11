@@ -38,6 +38,32 @@ These three classes make extensive use of various Python tools and features, inc
 	- [test_rectangle.py](tests/test_rectangle.py)
 	- [test_square.py](tests/test_square.py)
 
+## Getting Started
+
+This project is part of the [main repository](https://github.com/AhmadYousif89/alx-higher_level_programming) therefore you have two options:
+
+1. Clone the entire repository to access this project as a sub-directory.
+
+2. Follow these instructions to **only** clone this project/directory:
+
+	- Open a terminal where you want to save this project.
+	- Enter this command:
+		```bash
+		git clone --filter=blob:none --sparse https://github.com/AhmadYousif89/alx-higher_level_programming
+
+		cd alx-higher_level_programming
+		```
+	- Optional command (you might skip this one):
+		```bash
+		git config core.sparseCheckout true
+		```
+	- Then after navigating to the new directory:
+		```bash
+		git sparse-checkout add 0x0C-python-almost_a_circle
+
+		cd 0x0C-python-almost_a_circle
+		```
+
 ### Testing
 
 Running all tests at once with this command:
@@ -45,8 +71,17 @@ Running all tests at once with this command:
 ```bash
 python3 -m unittest discover tests
 ```
-Running specific test file:
+Running specific test file with this command:
 
 ```bash
 python3 -m unittest tests/<test_file>
 ```
+For testing the general tests provided for each task run the **general_tests.py** file with this command:
+
+```bash
+python3 -m tests.general_tests
+```
+
+### Auther
+
+- [Ahmad Yousif](https://github.com/AhmadYousif89)
