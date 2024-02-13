@@ -20,11 +20,12 @@ class Square(Rectangle):
 
     def __str__(self):
         """Return a string representation of the Square object."""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.height}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
     def size(self):
-        return self.height
+        """Set/Get the size of the Square."""
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -32,6 +33,7 @@ class Square(Rectangle):
         self.height = value
 
     def display(self):
+        """Print the Square using the `#` character."""
         for _ in range(self.y):
             print()
         for _ in range(self.height):

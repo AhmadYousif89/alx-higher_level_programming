@@ -36,6 +36,9 @@ class Base:
 
         Args:
         -   list_dictionaries (list): A list of dictionaries.
+
+        Return:
+        -   A Json string.
         """
         if (
             list_dictionaries is None
@@ -95,7 +98,10 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """
-        Return a list of classes instantiated from a file of JSON strings.
+        Reads a list of classes instantiated from a file of JSON strings.
+
+        Return:
+        - A list of class instances.
         """
         filename = f"{cls.__name__}.json"
 
@@ -109,10 +115,13 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        Return a class instantiated from a dictionary of attributes.
+        Creates a class from a dictionary of attributes.
 
         Args:
         -   **dictionary (dict): Key/value pairs of attributes.
+
+        Return:
+        -   A new class instance.
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Square":
@@ -156,7 +165,10 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """
-        Return a list of classes instantiated from a CSV file.
+        Reads a list of classes instantiated from a CSV file.
+
+        Return:
+        - A list of class instances.
         """
         filename = f"{cls.__name__}.csv"
 
