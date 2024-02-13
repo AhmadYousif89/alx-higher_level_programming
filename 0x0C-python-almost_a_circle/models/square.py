@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Defines a Square class."""
-from .rectangle import Rectangle, Base
+from .rectangle import Rectangle
 
 
 class Square(Rectangle):
