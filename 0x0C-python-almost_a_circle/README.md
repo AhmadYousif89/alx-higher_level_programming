@@ -2,6 +2,8 @@
 
 This repository showcases a practical application of various Python skills and techniques. Mastering the object-oriented programming through the context of implementing and testing classes related to geometric shapes **(Rectangles and Squares)**.
 
+## Overview
+
 In this project, we are implementing three classes: 
 - Base class: The foundational class serving as a common structure for the other geometric shapes.
 
@@ -23,7 +25,7 @@ These three classes make extensive use of various Python tools and features, inc
 - Going beyond abstract programming concepts by incorporating the **Turtle** module to visually represent the geometric shapes. 
 - Thorough unit testing with the **unittest** module
 
-## Table of Content
+## Project Structure
 
 1. models
 
@@ -64,7 +66,7 @@ This project is part of the [main repository](https://github.com/AhmadYousif89/a
 		cd 0x0C-python-almost_a_circle
 		```
 
-### Testing
+## Testing
 
 Running all tests at once with this command:
 
