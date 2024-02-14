@@ -65,7 +65,20 @@ This project is part of the [main repository](https://github.com/AhmadYousif89/a
 
 		cd 0x0C-python-almost_a_circle
 		```
-
+3. Now you should have this structure inside your current directory:
+	```sh
+		the_repo_name/
+		|-- models/
+		|   |-- base.py
+		|   |-- rectangle.py
+		|   |-- square.py
+		|-- tests/
+		|   |-- general_tests.py
+		|   |-- test_base.py
+		|   |-- test_rectangle.py
+		|   |-- test_square.py
+		|-- README.md
+	```
 ## Testing
 
 Running all tests at once with this command:
