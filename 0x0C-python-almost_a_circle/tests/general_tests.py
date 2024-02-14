@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 # run with --> py -m tests.general_tests
-from models.square import Base, Square, Rectangle
+from models.base import Base
+from models.square import Square
+from models.rectangle import  Rectangle
 
 if __name__ == "__main__":
     print("\n---------- 1. Base class ----------\n")
