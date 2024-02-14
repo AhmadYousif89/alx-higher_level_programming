@@ -67,12 +67,14 @@ This project is part of the [main repository](https://github.com/AhmadYousif89/a
 		```
 3. Now you should have this structure inside your current directory:
 	```sh
-		the_repo_name/
+		The_repo_name/
 		|-- models/
+		|   |-- __init__.py
 		|   |-- base.py
 		|   |-- rectangle.py
 		|   |-- square.py
 		|-- tests/
+		|   |-- __init__.py
 		|   |-- general_tests.py
 		|   |-- test_base.py
 		|   |-- test_rectangle.py
