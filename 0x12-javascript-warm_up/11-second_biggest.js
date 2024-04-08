@@ -5,14 +5,14 @@ const argsLen = args.length;
 
 if (argsLen < 2) {
   console.log(0);
-  return;
+  process.exit(1);
 }
 
 let max = +args[0];
 let secondMax = -Infinity;
 
 for (let i = 0; i < args.length; i++) {
-  let num = +args[i];
+  const num = +args[i];
   if (num > max) {
     secondMax = max;
     max = num;

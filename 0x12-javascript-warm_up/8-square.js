@@ -4,7 +4,7 @@ const arg = process.argv[2];
 
 if (!Number.isInteger(+arg)) {
   console.log('Missing size');
-  return;
+  process.exit(1);
 }
 
 for (let i = 0; i < +arg; i++) {

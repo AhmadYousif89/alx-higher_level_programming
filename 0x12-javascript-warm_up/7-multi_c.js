@@ -4,7 +4,7 @@ const arg = process.argv[2];
 
 if (arg === '' || isNaN(arg)) {
   console.log('Missing number of occurrences');
-  return;
+  process.exit(1);
 }
 
 for (let i = 0; i < +arg; i++) {
