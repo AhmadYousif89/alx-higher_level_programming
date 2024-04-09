@@ -3,10 +3,6 @@
 const SquareBase = require('./5-square');
 
 class Square extends SquareBase {
-  constructor (size) {
-    super(size, size);
-  }
-
   charPrint (c) {
     for (let h = 0; h < this.height; h++) {
       let row = '';
