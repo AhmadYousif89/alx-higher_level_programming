@@ -1,5 +1,6 @@
 #!/usr/bin/node
 
+// for our case it should be "./tests/101-data.js"
 const dict = require('./101-data.js').dict;
 
 const newDict = {};
