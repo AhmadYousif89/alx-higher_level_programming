@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Lists a specific state from the database hbtn_0e_0_usa"""
-"""while handling SQL injections"""
 
 
 def main():
