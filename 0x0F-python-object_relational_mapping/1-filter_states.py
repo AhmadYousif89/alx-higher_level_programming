@@ -10,7 +10,7 @@ def main():
     DB = sys.argv[3]
     db = MySQLdb.connect(host=HOST, port=PORT, user=USER, passwd=PASSWD, db=DB)
     cur = db.cursor()
-    sql = "SELECT * FROM states WHERE name LIKE 'N%'"
+    sql = "SELECT * FROM states WHERE name LIKE BINARY 'N%'"
     cur.execute(sql)
     rows = cur.fetchall()
     for row in rows:

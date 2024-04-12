@@ -12,7 +12,7 @@ def main():
     db = MySQLdb.connect(host=HOST, port=PORT, user=USER, passwd=PASSWD, db=DB)
     cur = db.cursor()
     target = sys.argv[4]
-    sql = "SELECT * FROM states WHERE name = '{}'".format(target)
+    sql = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(target)
     cur.execute(sql)
     rows = cur.fetchall()
     for row in rows:
