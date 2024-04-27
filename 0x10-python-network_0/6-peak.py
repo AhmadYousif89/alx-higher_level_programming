@@ -2,34 +2,31 @@
 """Get the peak element from an unsorted list"""
 
 
-def get_peak_recursivly(int_list, left, right):
+def get_peak_recursivly(int_list, start, end):
     """
     Finds the peak element in the list recursively.
 
     Args:
         int_list: The list of integers to search.
-        peak: The index of the current element being considered as a peak.
+        start: The starting index of the list.
+        end: The ending index of the list.
 
     Returns:
-        The peak element in the list, or None if the list is empty.
+        The peak element in the list.
     """
-    mid = (left + right) // 2
+    mid = (start + end) // 2
     peak = int_list[mid]
     prev_n = int_list[mid - 1]
     next_n = int_list[mid + 1] if mid < len(int_list) - 1 else 0
-    # check if the middle element is greater than its neighbors
-    if (mid == 0 or prev_n <= peak) and (
-        mid == len(int_list) - 1 or next_n <= peak
-    ):
-        return peak
 
-    # If the left neighbor of `mid` is greater than the middle element,
-    # find the peak recursively in the left sublist
-    if mid - 1 >= 0 and prev_n > peak:
-        return get_peak_recursivly(int_list, left, mid - 1)
-    # If the right neighbor of `mid` is greater than the middle element,
-    # find the peak recursively in the right sublist
-    return get_peak_recursivly(int_list, mid + 1, right)
+    # check if the peak element is greater than its neighbors
+    if prev_n <= peak and peak >= next_n:
+        return peak
+    # Search left if peak is less than the left neighbor
+    if peak < prev_n:
+        return get_peak_recursivly(int_list, start, mid - 1)
+    # Search right if peak is greater than the right neighbor
+    return get_peak_recursivly(int_list, mid + 1, end)
 
 
 def find_peak(list_of_integers):
