@@ -10,7 +10,10 @@ if __name__ == "__main__":
 
     username = sys.argv[1]
     password = sys.argv[2] if len(sys.argv) > 2 else ''
-    url = f'https://api.github.com/users/{username}'
+    if not username or not password:
+        exit(1)
+
+    url = f'https://api.github.com/user'
     response = requests.get(url, auth=(username, password))
 
     user_info = response.json()
