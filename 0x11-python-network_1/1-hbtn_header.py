@@ -11,5 +11,5 @@ import urllib.request
 url = sys.argv[1] if len(sys.argv) > 1 else ''
 
 with urllib.request.urlopen(url) as response:
-    req_id = response.getheader('X-Request-Id')
+    req_id = dict(response.headers).get('X-Request-Id')
     print(req_id)
