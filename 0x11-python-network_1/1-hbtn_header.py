@@ -8,7 +8,7 @@ found in the header of the response.
 import sys
 import urllib.request
 
-url = sys.argv[1] if len(sys.argv) > 1 else ''
+url = sys.argv[1]
 
 with urllib.request.urlopen(url) as response:
     req_id = dict(response.headers).get('X-Request-Id')
