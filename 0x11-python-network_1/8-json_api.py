@@ -8,8 +8,6 @@ import requests
 
 url = 'http://0.0.0.0:5000/search_user'
 query = sys.argv[1] if len(sys.argv) > 1 else ''
-if not query:
-    exit(1)
 
 try:
     res = requests.post(url, data={"q": query})

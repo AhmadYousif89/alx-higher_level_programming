@@ -9,8 +9,6 @@ from urllib import request
 from urllib.error import HTTPError, URLError
 
 url = sys.argv[1] if len(sys.argv) > 1 else ''
-if not url:
-    exit(1)
 
 try:
     with request.urlopen(url) as response:

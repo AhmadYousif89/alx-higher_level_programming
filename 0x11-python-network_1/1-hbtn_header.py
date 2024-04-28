@@ -9,8 +9,6 @@ import sys
 import urllib.request
 
 url = sys.argv[1] if len(sys.argv) > 1 else ''
-if not url:
-    exit(1)
 
 with urllib.request.urlopen(url) as response:
     req_id = response.getheader('X-Request-Id')

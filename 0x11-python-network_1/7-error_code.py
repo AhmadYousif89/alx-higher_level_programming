@@ -7,8 +7,6 @@ import sys
 import requests
 
 url = sys.argv[1] if len(sys.argv) > 1 else ''
-if not url:
-    exit(1)
 
 try:
     res = requests.get(url)
