@@ -9,7 +9,9 @@ if __name__ == "__main__":
     import requests
 
     url = sys.argv[1] if len(sys.argv) > 1 else ''
+    if not url:
+        exit(1)
 
     res = requests.get(url)
-    req_id = res.headers["X-Request-Id"]
+    req_id = dict(res.headers).get("X-Request-Id")
     print(req_id)
