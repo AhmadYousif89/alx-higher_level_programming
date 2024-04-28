@@ -5,14 +5,15 @@ with the email as a parameter, and displays the body of the response
 (decoded in utf-8)
 """
 
-import sys
-from urllib import request, parse
+if __name__ == "__main__":
+    import sys
+    from urllib import request, parse
 
-url = sys.argv[1] if len(sys.argv) > 1 else ''
-email = sys.argv[2] if len(sys.argv) > 2 else ''
+    url = sys.argv[1] if len(sys.argv) > 1 else ''
+    email = sys.argv[2] if len(sys.argv) > 2 else ''
 
-data = parse.urlencode({"email": email}).encode('ascii')
-req = request.Request(url, data)
-with request.urlopen(req) as response:
-    res = response.read().decode('utf-8')
-    print(res)
+    data = parse.urlencode({"email": email}).encode('ascii')
+    req = request.Request(url, data)
+    with request.urlopen(req) as response:
+        res = response.read().decode('utf-8')
+        print(res)
