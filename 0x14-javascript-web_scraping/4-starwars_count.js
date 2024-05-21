@@ -3,16 +3,15 @@
 
 const request = require('request');
 
-const filmsUrl = process.argv[2];
-request(filmsUrl, (err, res, body) => {
+const url = process.argv[2];
+request(url, (err, res, body) => {
   if (err) {
     console.log(err);
     return;
   }
-  const characterUrl = JSON.parse(body).results[0].characters.find(url =>
-    url.includes(18 || '18')
-  );
-  request(characterUrl, (err, res, body) =>
-    err ? console.log(err) : console.log(JSON.parse(body).films.length)
-  );
+  const results = JSON.parse(body).results;
+  const movieCount = results.reduce((count, movie) => {
+    return movie.characters.find(character => character.includes('18')) ? ++count : count;
+  }, 0);
+  console.log(movieCount);
 });
