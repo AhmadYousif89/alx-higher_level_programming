@@ -3,17 +3,17 @@
 
 const request = require('request');
 
-const character_id = '18';
-const films_url = process.argv[2];
-request(films_url, (err, res, body) => {
+const characterId = '18';
+const filmsUrl = process.argv[2];
+request(filmsUrl, (err, res, body) => {
   if (err) {
     console.log(err);
     return;
   }
-  const character_url = JSON.parse(body).results[0].characters.find(url =>
-    url.includes(character_id)
+  const characterUrl = JSON.parse(body).results[0].characters.find(url =>
+    url.includes(characterId)
   );
-  request(character_url, (err, res, body) =>
+  request(characterUrl, (err, res, body) =>
     err ? console.log(err) : console.log(JSON.parse(body).films.length)
   );
 });

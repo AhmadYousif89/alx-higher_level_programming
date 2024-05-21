@@ -12,11 +12,11 @@ request(url, (err, res, body) => {
   }
 
   const tasks = JSON.parse(body);
-  const completed_tasks = tasks
+  const completedTasks = tasks
     .filter(task => task.completed)
     .reduce((completed, task) => {
       completed[task.userId] = (completed[task.userId] || 0) + 1;
       return completed;
     }, {});
-  console.log(completed_tasks);
+  console.log(completedTasks);
 });

@@ -12,8 +12,8 @@ request(url, (err, res, body) => {
   }
 
   const characters = JSON.parse(body).characters;
-  characters.forEach(character_url =>
-    request(character_url, (err, res, body) =>
+  characters.forEach(characterUrl =>
+    request(characterUrl, (err, res, body) =>
       err ? console.log(err) : console.log(JSON.parse(body).name)
     )
   );

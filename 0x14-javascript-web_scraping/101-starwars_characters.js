@@ -8,13 +8,13 @@ const requestPromise = util.promisify(request);
 
 const url = `https://swapi-api.alx-tools.com/api/films/${process.argv[2]}`;
 
-async function printCharactersInOrder() {
+async function printCharactersInOrder () {
   try {
     const response = await requestPromise(url);
     const characters = JSON.parse(response.body).characters;
 
-    for (const character_url of characters) {
-      const response = await requestPromise(character_url);
+    for (const characterUrl of characters) {
+      const response = await requestPromise(characterUrl);
       console.log(JSON.parse(response.body).name);
     }
   } catch (err) {
