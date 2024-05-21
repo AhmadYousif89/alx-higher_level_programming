@@ -3,7 +3,6 @@
 
 const request = require('request');
 
-const characterId = '18';
 const filmsUrl = process.argv[2];
 request(filmsUrl, (err, res, body) => {
   if (err) {
@@ -11,7 +10,7 @@ request(filmsUrl, (err, res, body) => {
     return;
   }
   const characterUrl = JSON.parse(body).results[0].characters.find(url =>
-    url.includes(characterId)
+    url.includes(18 || '18')
   );
   request(characterUrl, (err, res, body) =>
     err ? console.log(err) : console.log(JSON.parse(body).films.length)
