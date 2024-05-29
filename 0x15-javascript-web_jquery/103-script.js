@@ -10,10 +10,7 @@ $(function () {
     const lang = $('#language_code').val();
     $.get(`${url}?lang=${lang}`, data => $('#hello').append(data.hello));
   });
-  $('#language_code').keypress(function (e) {
-    if (e.which == 13) {
-      $('#btn_translate').click();
-      return false;
-    }
+  $('#language_code').keypress(e => {
+    if (e.which == 13) $('#btn_translate').click();
   });
 });
